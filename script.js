@@ -1,4 +1,4 @@
-// ===== 1. SELEKSI ELEMEN =====
+
 const saldoEl = document.getElementById("saldo");
 const btnMata = document.getElementById("btn-mata");
 const btnTopup = document.getElementById("btn-topup");
@@ -15,7 +15,7 @@ const semuaNominal = document.querySelectorAll(".nominal");
 const semuaNav = document.querySelectorAll(".nav-item");
 const semuaChip = document.querySelectorAll(".chip");
 
-// ===== 2. DATA & VARIABEL =====
+
 let saldo = 51427;
 let saldoTampil = true;
 let nominalDipilih = 0;
@@ -31,9 +31,7 @@ const layanan = [
     { nama: "Lihat semua", ikon: "⋮⋮", badge: "" }
 ];
 
-// ===== 3. FUNCTION =====
 
-// Mengubah angka 51427 menjadi teks "51.427"
 function formatRupiah(angka) {
     let teks = String(angka);
     let hasil = "";
@@ -50,7 +48,7 @@ function formatRupiah(angka) {
     return hasil;
 }
 
-// Menampilkan saldo sesuai status mata (terlihat / disembunyikan)
+
 function tampilkanSaldo() {
     const mataImg = btnMata.querySelector("img");
 
@@ -63,7 +61,6 @@ function tampilkanSaldo() {
     }
 }
 
-// Memunculkan notifikasi kecil selama 2 detik
 function tampilToast(pesan) {
     toast.textContent = pesan;
     toast.classList.add("tampil");
@@ -73,7 +70,6 @@ function tampilToast(pesan) {
     }, 2000);
 }
 
-// Menutup modal dan mengosongkan pilihan nominal
 function tutupModal() {
     overlay.classList.remove("tampil");
     nominalDipilih = 0;
@@ -83,20 +79,17 @@ function tutupModal() {
     });
 }
 
-// ===== 4. DOM DINAMIS: BUAT GRID LAYANAN =====
 layanan.forEach(function(item) {
-    // Buat elemen
+
     const tombol = document.createElement("button");
     const kotak = document.createElement("div");
     const nama = document.createElement("span");
 
-    // Hias elemen
     tombol.classList.add("item");
     kotak.classList.add("ikon-box");
     kotak.textContent = item.ikon;
     nama.textContent = item.nama;
 
-    // Badge hanya dibuat kalau ada isinya
     if (item.badge === "murah") {
         const badge = document.createElement("img");
         badge.classList.add("badge");
@@ -111,7 +104,6 @@ layanan.forEach(function(item) {
         kotak.appendChild(badge);
     }
 
-    // Tempel ke halaman
     tombol.appendChild(kotak);
     tombol.appendChild(nama);
     gridLayanan.appendChild(tombol);
@@ -121,30 +113,24 @@ layanan.forEach(function(item) {
     });
 });
 
-// ===== 5. EVENT LISTENER =====
 
-// Tombol mata: tampilkan / sembunyikan saldo
 btnMata.addEventListener("click", function() {
     saldoTampil = !saldoTampil;
     tampilkanSaldo();
 });
 
-// Tombol Top up: buka modal
 btnTopup.addEventListener("click", function() {
     overlay.classList.add("tampil");
 });
 
-// Tombol tutup modal
 btnTutup.addEventListener("click", tutupModal);
 
-// Klik area gelap di luar modal juga menutup modal
 overlay.addEventListener("click", function(event) {
     if (event.target === overlay) {
         tutupModal();
     }
 });
 
-// Pilih nominal top up
 semuaNominal.forEach(function(tombol) {
     tombol.addEventListener("click", function() {
         semuaNominal.forEach(function(t) {
@@ -156,7 +142,6 @@ semuaNominal.forEach(function(tombol) {
     });
 });
 
-// Konfirmasi top up: saldo bertambah
 btnKonfirmasi.addEventListener("click", function() {
     if (nominalDipilih === 0) {
         tampilToast("Pilih nominal dulu ya");
@@ -169,7 +154,6 @@ btnKonfirmasi.addEventListener("click", function() {
     tutupModal();
 });
 
-// Navigasi: menu yang diklik jadi aktif
 semuaNav.forEach(function(item) {
     item.addEventListener("click", function() {
         semuaNav.forEach(function(n) {
@@ -180,7 +164,6 @@ semuaNav.forEach(function(item) {
     });
 });
 
-// Tombol lain yang hanya memunculkan notifikasi
 btnQris.addEventListener("click", function() {
     tampilToast("Fitur scan QRIS belum tersedia");
 });
