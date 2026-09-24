@@ -21,14 +21,14 @@ let saldoTampil = true;
 let nominalDipilih = 0;
 
 const layanan = [
-    { nama: "Transfer gratis", ikon: "✈️", badge: "MURAAAH", warna: "hijau" },
-    { nama: "Paket Data", ikon: "📱", badge: "MURAAAH", warna: "hijau" },
-    { nama: "Pulsa", ikon: "📲", badge: "MURAAAH", warna: "hijau" },
-    { nama: "PLN", ikon: "⚡", badge: "MURAAAH", warna: "hijau" },
-    { nama: "GoPay Pet", ikon: "🐱", badge: "HADIAH IJT", warna: "kuning" },
-    { nama: "Gojek", ikon: "🛵", badge: "MURAAAH", warna: "hijau" },
-    { nama: "Top up kartu e-money", ikon: "💳", badge: "MURAAAH", warna: "hijau" },
-    { nama: "Lihat semua", ikon: "⋮⋮", badge: "", warna: "" }
+    { nama: "Transfer gratis", ikon: "✈️", badge: "murah" },
+    { nama: "Paket Data", ikon: "📱", badge: "murah" },
+    { nama: "Pulsa", ikon: "📲", badge: "murah" },
+    { nama: "PLN", ikon: "⚡", badge: "murah" },
+    { nama: "GoPay Pet", ikon: "🐱", badge: "hadiah" },
+    { nama: "Gojek", ikon: "🛵", badge: "murah" },
+    { nama: "Top up kartu e-money", ikon: "💳", badge: "murah" },
+    { nama: "Lihat semua", ikon: "⋮⋮", badge: "" }
 ];
 
 // ===== 3. FUNCTION =====
@@ -52,12 +52,14 @@ function formatRupiah(angka) {
 
 // Menampilkan saldo sesuai status mata (terlihat / disembunyikan)
 function tampilkanSaldo() {
+    const mataImg = btnMata.querySelector("img");
+
     if (saldoTampil) {
         saldoEl.textContent = formatRupiah(saldo);
-        btnMata.textContent = "👁️";
+        mataImg.src = "assets/mata_terbuka.png";
     } else {
         saldoEl.textContent = "•••••";
-        btnMata.textContent = "🙈";
+        mataImg.src = "assets/mata_tertutup.png";
     }
 }
 
@@ -95,11 +97,17 @@ layanan.forEach(function(item) {
     nama.textContent = item.nama;
 
     // Badge hanya dibuat kalau ada isinya
-    if (item.badge !== "") {
-        const badge = document.createElement("span");
+    if (item.badge === "murah") {
+        const badge = document.createElement("img");
         badge.classList.add("badge");
-        badge.classList.add(item.warna);
-        badge.textContent = item.badge;
+        badge.src = "assets/logomurah.png";
+        badge.alt = "MURAAAH";
+        kotak.appendChild(badge);
+    } else if (item.badge === "hadiah") {
+        const badge = document.createElement("img");
+        badge.classList.add("badge");
+        badge.src = "assets/hadiah_1_juta.png";
+        badge.alt = "HADIAH 1 JT";
         kotak.appendChild(badge);
     }
 
