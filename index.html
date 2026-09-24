@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoPay - Beranda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigasi (di bawah untuk mobile, di atas untuk desktop) -->
+    <nav class="nav">
+        <button class="nav-item aktif">
+            <span class="nav-ikon">🏠</span>
+            <span class="nav-label">Beranda</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-ikon">👛</span>
+            <span class="nav-label">Keuangan</span>
+        </button>
+        <button class="nav-qris" id="btn-qris">
+            <span class="qris-ikon">▣</span>
+            <span class="nav-label">QRIS</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-ikon">🧾</span>
+            <span class="nav-label">Riwayat</span>
+        </button>
+        <button class="nav-item">
+            <span class="nav-ikon">👤</span>
+            <span class="nav-label">Profil</span>
+        </button>
+    </nav>
+
+    <main class="app">
+
+        <!-- Header biru -->
+        <section class="hero">
+            <div class="hero-atas">
+                <span class="logo">🔷 gopay</span>
+                <button class="btn-bantuan" id="btn-bantuan">?</button>
+            </div>
+
+            <div class="hero-isi">
+                <div class="saldo-kiri">
+                    <div class="saldo">
+                        <span class="rp">Rp</span>
+                        <span id="saldo">51.427</span>
+                        <button class="btn-mata" id="btn-mata">👁️</button>
+                    </div>
+                    <p class="coins">36 Coins</p>
+                    <p class="pengeluaran">📊 <b>Rp47.500</b> udah terpakai</p>
+                </div>
+
+                <div class="aksi">
+                    <button class="btn-aksi" id="btn-topup">
+                        <span>⊕</span>
+                        <span>Top up</span>
+                    </button>
+                    <button class="btn-aksi" id="btn-tarik">
+                        <span>↓</span>
+                        <span>Tarik Tunai</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="chip-wrap">
+                <button class="chip">🪙 Pinjam s.d. 35jt ›</button>
+                <button class="chip">💧 Aktifkin GoPay Later ›</button>
+                <button class="chip">🛡️ Asuransi ›</button>
+            </div>
+        </section>
+
+        <!-- Konten di bawah header -->
+        <section class="konten">
+            <div class="layanan-card">
+                <div class="grid-layanan" id="grid-layanan"></div>
+            </div>
+
+            <div class="banner" id="banner">
+                <div class="banner-ikon">+</div>
+                <div class="banner-teks">
+                    <h3>Mulai transfer pertamamu yuk!</h3>
+                    <p>Cobain GRATIS transfer 100x ke bank mana pun.</p>
+                </div>
+                <span class="banner-panah">›</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Top up -->
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <div class="modal-atas">
+                <h2>Top up GoPay</h2>
+                <button id="btn-tutup">✕</button>
+            </div>
+            <p class="modal-label">Pilih nominal</p>
+            <div class="nominal-wrap">
+                <button class="nominal" value="10000">Rp10.000</button>
+                <button class="nominal" value="20000">Rp20.000</button>
+                <button class="nominal" value="50000">Rp50.000</button>
+                <button class="nominal" value="100000">Rp100.000</button>
+            </div>
+            <button class="btn-konfirmasi" id="btn-konfirmasi">Top up sekarang</button>
+        </div>
+    </div>
+
+    <!-- Notifikasi kecil -->
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
