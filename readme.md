@@ -10,7 +10,8 @@ Tugas slicing tampilan aplikasi GoPay (halaman Beranda), dibuat menggunakan HTML
 ## Screenshot
 
 ### Tampilan Mobile
-![Screenshot Mobile](assets/screenshot-mobile.png)
+
+![Screenshot Mobile](assets/screenshot-mobile.jpeg)
 
 ### Tampilan Tablet
 ![Screenshot Tablet](assets/screenshot-tablet.png)
@@ -18,7 +19,6 @@ Tugas slicing tampilan aplikasi GoPay (halaman Beranda), dibuat menggunakan HTML
 ### Tampilan Desktop
 ![Screenshot Desktop](assets/screenshot-desktop.png)
 
-> Sesuaikan ekstensi file (`.png`/`.jpg`) di atas dengan file screenshot asli di folder `assets`.
 
 ## Fitur
 
